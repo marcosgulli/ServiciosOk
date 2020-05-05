@@ -16,7 +16,7 @@ namespace Servicios
 {
     public partial class Turnos : Form
     {
-        public Turnos()
+        public Turnos()   
         {
             InitializeComponent();
 
@@ -25,22 +25,23 @@ namespace Servicios
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog buscar = new OpenFileDialog();
-            buscar.Multiselect = true;
-            buscar.Title = "Abrir Excel";
-            buscar.Filter = "Excel files|*.xls;*xlsx";
-            buscar.InitialDirectory = @"D:\Ale";
-            
-                if (buscar.ShowDialog() == DialogResult.OK)
-                {
-                
-                    txtExcel.Lines = buscar.FileNames;
-                
-                }
-            
-            btnImportar.Enabled = true;
-        }
+              OpenFileDialog buscar = new OpenFileDialog();
+              buscar.Multiselect = true;
+              buscar.Title = "Abrir Excel";
+              buscar.Filter = "Excel files|*.xls;*xlsx";
+              buscar.InitialDirectory = @"D:\Ale";
 
+                  if (buscar.ShowDialog() == DialogResult.OK)
+                  {
+                  
+                      txtExcel.Lines = buscar.FileNames;
+
+                  }
+
+              btnImportar.Enabled = true;
+
+            
+        }
         private void btnImportar_Click(object sender, EventArgs e)
         {
 
@@ -49,9 +50,8 @@ namespace Servicios
             conn = new SqlConnection(connectString);
             conn.Open();
             SqlCommand comm = conn.CreateCommand();
-            comm.CommandText = "insert into policias (dni_policia,nombre,categoria) values(@1,@2,@3)";
+            comm.CommandText = "insert into policias (dni_policia,nombre,categoria) values(@1,@2,@3)";          
 
-            
 
 
                 Excel.Application xlApp = new Excel.Application();
@@ -60,7 +60,7 @@ namespace Servicios
                 Excel.Range range = xlWorksheet.UsedRange;
                 int rows = range.Rows.Count;
                 int cols = range.Columns.Count;
-           
+
 
                 for (int i = 2; i <= rows; i++)
                 {
@@ -131,6 +131,7 @@ namespace Servicios
                 txtExcel.Text = "";
                 btnImportar.Enabled = false;
 
+
             
         }
 
@@ -138,5 +139,10 @@ namespace Servicios
         {
             btnImportar.Enabled = false;
         }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
     }
-}
+    }

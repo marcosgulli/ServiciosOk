@@ -32,6 +32,7 @@
             this.txtExcel = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // lblArchivo
@@ -71,6 +72,11 @@
             this.btnImportar.UseVisualStyleBackColor = true;
             this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
             // Turnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,5 +100,6 @@
         private System.Windows.Forms.TextBox txtExcel;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnImportar;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

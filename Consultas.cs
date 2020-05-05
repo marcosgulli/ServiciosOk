@@ -28,30 +28,39 @@ namespace Servicios
             rpt.Fecha2 = dtp2.Value.Date;
             if (string.IsNullOrEmpty (txtServicio.Text))
             {
-                Nullable<int> serv = null;
-                rpt.Servicio = serv;
+                
+                rpt.Servicio = null;
                 
             }
-            else {
+            else
+            {
                 rpt.Servicio = Convert.ToInt32(txtServicio.Text);
             }
-
             
             if (string.IsNullOrEmpty(txtDni.Text))
             {
-                Nullable<int> serv = null;
-                rpt.Documento = serv;
-
+                rpt.Documento = null;
             }
             else
             {
                 rpt.Documento = Convert.ToInt32(txtDni.Text);
             }
-
-            rpt.Nombre = txtNombre.Text;
-
-
-
+            if (string.IsNullOrEmpty(txtDni.Text))
+            {
+                rpt.Nombre = null;
+            }
+            else
+            {
+                rpt.Nombre = txtNombre.Text;
+            }
+            if (string.IsNullOrEmpty(txtDni.Text))
+            {
+                rpt.Categoria = null;
+            }
+            else
+            {
+                rpt.Categoria = txtNombre.Text;
+            }
 
 
             rpt.ShowDialog();

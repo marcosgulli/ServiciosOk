@@ -22,6 +22,7 @@ namespace Servicios
         public Nullable<int> Servicio;
         public Nullable<int> Documento;
         public string Nombre;
+        public string Categoria;
 
         private void Crystal_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,7 @@ namespace Servicios
             rpt.SetParameterValue("@servicio", Servicio);
             rpt.SetParameterValue("@dni", Documento);
             rpt.SetParameterValue("@nombre", Nombre);
+            rpt.SetParameterValue("@categoria", Categoria);
           
 
             crystalReportViewer1.ReportSource=rpt;
