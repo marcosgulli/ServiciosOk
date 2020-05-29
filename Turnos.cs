@@ -31,12 +31,20 @@ namespace Servicios
               buscar.Filter = "Excel files|*.xls;*xlsx";
               buscar.InitialDirectory = @"D:\Ale";
 
-                  if (buscar.ShowDialog() == DialogResult.OK)
-                  {
-                  
-                      txtExcel.Lines = buscar.FileNames;
 
-                  }
+
+            if (buscar.ShowDialog() == DialogResult.OK)
+            {
+                for (int i = 0; i < buscar.FileNames.Length; i++)
+                {
+                    string item = buscar.FileNames[i];
+                    lstExcels.Items.AddRange(buscar.FileNames);
+                    i++;
+                }
+
+               
+            
+            }
 
               btnImportar.Enabled = true;
 
@@ -44,18 +52,23 @@ namespace Servicios
         }
         private void btnImportar_Click(object sender, EventArgs e)
         {
+            for (int a = 0; a<  lstExcels.Items.Count; a++)
+            
+            {
+                string seleccionado = lstExcels.Items[a].ToString();
 
-            SqlConnection conn = new SqlConnection();
-            string connectString = "Data Source=MARCOS;Initial Catalog=Servicios;Integrated Security=True";
-            conn = new SqlConnection(connectString);
-            conn.Open();
-            SqlCommand comm = conn.CreateCommand();
-            comm.CommandText = "insert into policias (dni_policia,nombre,categoria) values(@1,@2,@3)";          
+
+                SqlConnection conn = new SqlConnection();
+                string connectString = "Data Source=MARCOS;Initial Catalog=Servicios;Integrated Security=True";
+                conn = new SqlConnection(connectString);
+                conn.Open();
+                SqlCommand comm = conn.CreateCommand();
+                comm.CommandText = "insert into policias (dni_policia,nombre,categoria) values(@1,@2,@3)";
 
 
 
                 Excel.Application xlApp = new Excel.Application();
-                Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(txtExcel.Text);
+                Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(seleccionado);
                 Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
                 Excel.Range range = xlWorksheet.UsedRange;
                 int rows = range.Rows.Count;
@@ -128,11 +141,11 @@ namespace Servicios
                 Marshal.ReleaseComObject(xlApp);
                 conn.Close();
                 MessageBox.Show("Exitoso");
-                txtExcel.Text = "";
+                
                 btnImportar.Enabled = false;
+            }
 
-
-            
+            lstExcels.Items.Clear();
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -29,32 +29,24 @@
         private void InitializeComponent()
         {
             this.lblArchivo = new System.Windows.Forms.Label();
-            this.txtExcel = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lstExcels = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblArchivo
             // 
             this.lblArchivo.AutoSize = true;
-            this.lblArchivo.Location = new System.Drawing.Point(42, 46);
+            this.lblArchivo.Location = new System.Drawing.Point(21, 9);
             this.lblArchivo.Name = "lblArchivo";
-            this.lblArchivo.Size = new System.Drawing.Size(102, 13);
+            this.lblArchivo.Size = new System.Drawing.Size(107, 13);
             this.lblArchivo.TabIndex = 0;
-            this.lblArchivo.Text = "Seleccionar Archivo";
-            // 
-            // txtExcel
-            // 
-            this.txtExcel.Location = new System.Drawing.Point(150, 43);
-            this.txtExcel.Multiline = true;
-            this.txtExcel.Name = "txtExcel";
-            this.txtExcel.Size = new System.Drawing.Size(165, 20);
-            this.txtExcel.TabIndex = 1;
+            this.lblArchivo.Text = "Seleccionar Archivos";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(321, 41);
+            this.btnBuscar.Location = new System.Drawing.Point(144, 4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(26, 23);
             this.btnBuscar.TabIndex = 2;
@@ -64,7 +56,7 @@
             // 
             // btnImportar
             // 
-            this.btnImportar.Location = new System.Drawing.Point(174, 106);
+            this.btnImportar.Location = new System.Drawing.Point(62, 232);
             this.btnImportar.Name = "btnImportar";
             this.btnImportar.Size = new System.Drawing.Size(75, 23);
             this.btnImportar.TabIndex = 4;
@@ -77,14 +69,22 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // lstExcels
+            // 
+            this.lstExcels.FormattingEnabled = true;
+            this.lstExcels.Location = new System.Drawing.Point(24, 49);
+            this.lstExcels.Name = "lstExcels";
+            this.lstExcels.Size = new System.Drawing.Size(146, 160);
+            this.lstExcels.TabIndex = 5;
+            // 
             // Turnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 141);
+            this.ClientSize = new System.Drawing.Size(199, 277);
+            this.Controls.Add(this.lstExcels);
             this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtExcel);
             this.Controls.Add(this.lblArchivo);
             this.Name = "Turnos";
             this.Text = "Servicios";
@@ -97,9 +97,9 @@
         #endregion
 
         private System.Windows.Forms.Label lblArchivo;
-        private System.Windows.Forms.TextBox txtExcel;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ListBox lstExcels;
     }
 }
