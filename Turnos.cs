@@ -40,9 +40,7 @@ namespace Servicios
                     string item = buscar.FileNames[i];
                     lstExcels.Items.AddRange(buscar.FileNames);
                     i++;
-                }
-
-               
+                }              
             
             }
 
@@ -52,7 +50,7 @@ namespace Servicios
         }
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            for (int a = 0; a<  lstExcels.Items.Count; a++)
+            for (int a = 0; a <  lstExcels.Items.Count; a++)
             
             {
                 string seleccionado = lstExcels.Items[a].ToString();
@@ -64,9 +62,6 @@ namespace Servicios
                 conn.Open();
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "insert into policias (dni_policia,nombre,categoria) values(@1,@2,@3)";
-
-
-
                 Excel.Application xlApp = new Excel.Application();
                 Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(seleccionado);
                 Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
@@ -139,13 +134,13 @@ namespace Servicios
                 Marshal.ReleaseComObject(xlWorkbook);
                 xlApp.Quit();
                 Marshal.ReleaseComObject(xlApp);
-                conn.Close();
-                MessageBox.Show("Exitoso");
+                conn.Close();              
                 
                 btnImportar.Enabled = false;
             }
-
+            MessageBox.Show("Exitoso");
             lstExcels.Items.Clear();
+            btnImportar.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -38,7 +38,7 @@
             // lblArchivo
             // 
             this.lblArchivo.AutoSize = true;
-            this.lblArchivo.Location = new System.Drawing.Point(21, 9);
+            this.lblArchivo.Location = new System.Drawing.Point(21, 14);
             this.lblArchivo.Name = "lblArchivo";
             this.lblArchivo.Size = new System.Drawing.Size(107, 13);
             this.lblArchivo.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(144, 4);
+            this.btnBuscar.Location = new System.Drawing.Point(144, 9);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(26, 23);
             this.btnBuscar.TabIndex = 2;

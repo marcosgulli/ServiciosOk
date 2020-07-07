@@ -123,3 +123,4 @@ D:\Ale\Servicios\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 D:\Ale\Servicios\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 D:\Ale\Servicios\obj\Debug\Servicios.Crystal.resources
 D:\Ale\Servicios\obj\Debug\Servicios.ReporteCambio.resources
+D:\Ale\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
